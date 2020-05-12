@@ -1,1 +1,47 @@
-<p>banda works!</p>
+<form [formGroup]='bandaForm' (ngSubmit)=submit()>
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Queen" type="text" formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Origen</mat-label>
+        <input matInput placeholder="Inglaterra" type="text" formControlName="origen">
+    </mat-form-field>
+
+    <section>
+        <mat-label>Estado </mat-label>
+        <mat-checkbox formControlName="estado">Activo</mat-checkbox>
+    </section>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Genero</mat-label>
+        <input matInput placeholder="Rock" type="text" formControlName="genero">
+    </mat-form-field>
+
+    <div formArrayName="miembros">
+        <mat-label>Miembros</mat-label>
+        <div *ngFor="let miembro of miembros.controls; let i=index">
+            <mat-label>Miembro: </mat-label>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Brian May" type="text" [formControlName]="i">
+            </mat-form-field>
+        </div>
+        <button type="button" mat-raised-button (click)="agregarMiembro()">Agregar miembro</button>
+    </div>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Discografica</mat-label>
+        <input matInput placeholder="EMI" type="text" formControlName="discografica">
+    </mat-form-field>
+
+    Status Formulario: {{bandaForm.status}}
+    <button mat-raised-button type="submit">Guardar</button>
+</form>
