@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { Ventas } from './../clases/Ventas';
 
 @Component({
   selector: 'app-banda',
@@ -12,6 +13,11 @@ export class BandaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  alumno = 'Gabriela Alcantú';
+  titulo = 'Alta Banda de Musica';
+  color = 'white';
+  ingreso = '';
 
   bandaForm = this.fb.group({
     nombre: ['Rolling Stones', Validators.required],
@@ -46,5 +52,9 @@ export class BandaComponent implements OnInit {
     });
     this.bandaForm.patchValue({ discografica: 'Capitol Records'});
   }
+
+  venta: Ventas = {
+    discosVendidos: 300000,
+  };
 
 }

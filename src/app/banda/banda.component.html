@@ -1,8 +1,12 @@
+<h2>Trabajo Practico N3 de: {{alumno | uppercase}}</h2>
+
+<h1 [innerHtml]="titulo"></h1>
 <form [formGroup]='bandaForm' (ngSubmit)=submit()>
     <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
-        <input matInput placeholder="Queen" type="text" formControlName="nombre">
+        <input matInput placeholder="Queen" type="text" formControlName="nombre" [(ngModel)]="ingreso">
     </mat-form-field>
+    <p>Banda Ingresada: {{ingreso | lowercase}}</p>
 
     <mat-form-field appearance="outline">
         <mat-label>Origen</mat-label>
@@ -43,5 +47,9 @@
     </mat-form-field>
 
     Status Formulario: {{bandaForm.status}}
-    <button mat-raised-button type="submit">Guardar</button>
+    <button mat-raised-button [color]="color" 
+    (mouseover)="color = 'accent'"
+    (mouseout)="color = 'white'" type="submit">Guardar</button>
 </form>
+
+<p>Discos Vendidos: {{venta.discosVendidos}}</p>
