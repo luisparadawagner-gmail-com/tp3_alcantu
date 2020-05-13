@@ -57,4 +57,14 @@ export class BandaComponent implements OnInit {
     discosVendidos: 300000,
   };
 
+  genero2: string;
+  varOrigB: string;
+	varModB: string;
+
+  onGenero(genero2) {
+    debugger;
+		this.genero2 = genero2;
+	}
+
+
 }

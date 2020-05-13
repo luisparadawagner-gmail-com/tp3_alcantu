@@ -53,3 +53,6 @@
 </form>
 
 <p>Discos Vendidos: {{venta.discosVendidos}}</p>
+
+<app-genero [varOrigG]="varOrigB" [varModG]="varModB" (cambioGenero)="onGenero($event)"></app-genero>
+<p>El genero musical es: {{genero2}}</p>

@@ -13,11 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BandaComponent } from './banda/banda.component';
+import { GeneroComponent } from './genero/genero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BandaComponent
+    BandaComponent,
+    GeneroComponent
   ],
   imports: [
     BrowserModule,
