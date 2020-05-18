@@ -1,2 +1,31 @@
 <input [formControl]="genero1">
 <button (click)="modificarGenero(genero1)">Ingrese un genero musical</button>
+
+<!--Se agregan componentes de angular material-->
+<br/><br/>
+<hr>
+<form>
+
+    <!--Select-->
+    <mat-form-field>
+      <mat-label>Genero Musical</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="genero">
+        <mat-option *ngFor="let genero of generos" [value]="genero.value">
+          {{genero.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Genero seleccionado: {{selectedValue}} </p>
+
+    <!--Autocompletar-->
+    <mat-form-field>
+        <mat-label>Elija uno</mat-label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+</form>
